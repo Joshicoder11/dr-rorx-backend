@@ -9,7 +9,14 @@ const appointmentRoute = require("./routes/appointment");
 const app = express();
 app.set("trust proxy", 1);
 app.use(helmet());
-app.use(cors({ origin: true }));
+app.use(cors({
+  origin: [
+    "https://rorxhealthcare.com",
+    "http://localhost:5173"
+  ],
+  methods: ["GET", "POST"],
+  credentials: true
+}));
 app.use(express.json({ limit: "200kb" }));
 
 app.use(
