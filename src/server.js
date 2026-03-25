@@ -7,7 +7,7 @@ const rateLimit = require("express-rate-limit");
 const appointmentRoute = require("./routes/appointment");
 
 const app = express();
-
+app.set("trust proxy", 1);
 app.use(helmet());
 app.use(cors({ origin: true }));
 app.use(express.json({ limit: "200kb" }));
